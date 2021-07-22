@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soal 3 GITS Indonesia</title>
+
+    <link rel="stylesheet" href="../Assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../Assets/css/mycss.css">
+</head>
+<body>
+    <div class="d-flex justify-content-center align-items-center height">
+        <div class="myContainer">
+            <h3>Soal Test Studi Independen & Magang</h1>
+                <p>PT GITS Indonesia</p>
+                <form method="POST">
+                    <div class="mb-3">
+                        <label class="form-label">Input Jam</label>
+                        <input type="text" class="form-control" id="jam">
+                    </div>
+                    <!--input angka-->
+                    <a href="#" id="submit" class="btn btn-submit">SUBMIT</a>
+                </form>
+                <div class="output">
+                    <p>Output : </p>
+                    <h3 id="hasilJam"></h3>
+                </div>
+                <!--output-->
+        </div>
+        <!--my container-->
+    </div><!--d-flex-->
+
+    <script src="../Assets/js/bootstrap.bundle.min.js"></script>
+    <script src="../Assets/js/jq.js"></script>
+    <script>
+        $('#submit').on('click', function () {
+            const convertTime12to24 = time12h => {
+                const [time, modifier] = time12h.split(" ");
+
+                let [hours, minutes] = time.split(":");
+
+                if (hours === "12") {
+                    hours = "00";
+                }
+
+                if (modifier === "PM") {
+                    hours = parseInt(hours, 10) + 12;
+                }
+
+                return `${hours}:${minutes}`;
+            };
+
+            let jam = $('#jam').val();
+
+            var convertedTime = convertTime12to24(jam);
+            $('#hasilJam').text(convertedTime);
+        // Output: 13:00
+        });
+        
+    </script>
+</body>
+</html>

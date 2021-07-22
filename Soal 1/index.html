@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soal 1 GITS Indonesia</title>
+
+    <link rel="stylesheet" href="../Assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../Assets/css/mycss.css">
+</head>
+<body>
+    <div class="d-flex justify-content-center align-items-center height">
+        <div class="myContainer">
+            <h3>Soal Test Studi Independen & Magang</h1>
+            <p>PT GITS Indonesia</p>
+            <form method="POST">
+                <div class="mb-3">
+                    <label for="angka" class="form-label">Input Angka</label>
+                    <input type="number" class="form-control" id="angka"  name="angka" required>
+                </div><!--input angka-->
+                <a href="#" id="submit" class="btn btn-submit">SUBMIT</a>
+            </form>
+            <div class= "output">
+                <p>Output : </p>
+                <h3 id="hasilAngka"></h3>
+            </div> <!--output-->
+        </div> <!--my container-->
+    </div> <!--d-flex-->
+    <script src="../Assets/js/bootstrap.bundle.min.js"></script>
+    <script src="../Assets/js/jq.js"></script>
+    <script>
+        $('#submit').on('click', function () {
+            let angka = $('#angka').val();
+            if (angka % 3 == 0 && angka % 5 == 0) {
+                $("#hasilAngka").text("Hello World");
+            }
+            else if(angka % 3 == 0){
+                $("#hasilAngka").text("Hello");
+            }
+            else if (angka % 5 == 0) {
+                $("#hasilAngka").text("World");
+            }
+            else{
+                $("#hasilAngka").text("Bilangan tidak valid");
+            }
+        });
+    </script>
+</body>
+</html>
